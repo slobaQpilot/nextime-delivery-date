@@ -160,11 +160,12 @@ export class NextimeModalComponent implements OnInit, OnDestroy {
       }
     }
 
-    this.filteredDeliveryOptions = this.deliveryOptions?.filter((option) =>
-      moment(moment.utc(option.deliveryDate).format('YYYY-MM-DD')).isBefore(
-        moment(moment.utc(this.deliveryDate).format('YYYY-MM-DD'))
-      )
-    );
+    this.filteredDeliveryOptions = this.deliveryOptions?.filter((option) => {
+      let deliveryDateClone = this.deliveryDate?.clone();
+      return moment(
+        moment(option.deliveryDate).utc().format('YYYY-MM-DD')
+      ).isBefore(moment(deliveryDateClone?.format('YYYY-MM-DD')));
+    });
 
     this.selectedOption = this.deliveryOptions?.find((option) => {
       return (

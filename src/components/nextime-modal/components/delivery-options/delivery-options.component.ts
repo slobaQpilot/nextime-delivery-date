@@ -34,9 +34,6 @@ export class DeliveryOptionsComponent implements OnChanges {
       this.selectedShippingLineName =
         changes['selectedOption'].currentValue?.shippingLines[0].name;
     }
-
-    console.log(this.selectedShippingLineName);
-    console.log(this.selectedOption);
   }
 
   handleShowOptions() {
