@@ -1,0 +1,72 @@
+mat-card {
+  max-width: var(--card-max-width, 500px);
+  margin: var(--card-margin, 0);
+  background-color: var(--primary-card-bg, #fce1df);
+  padding: 10px 15px 20px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.edit-btn {
+  color: var(--text-primary, #000000);
+  font-weight: 500;
+}
+
+h3 {
+  margin-bottom: 5px;
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+p {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.subp {
+  font-size: 18px;
+}
+
+p.subp.date {
+  font-weight: 500;
+}
+
+small {
+  font-size: 12px;
+}
+
+.shipping-to {
+  display: inline-block;
+  font-weight: 500;
+  max-width: 124px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+  text-decoration: underline;
+}
+
+.change-delivery-date {
+  height: 80px;
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.title {
+  font-weight: 500;
+}
+
+::ng-deep .mat-mdc-dialog-content {
+  max-height: 75vh !important;
+}
+
+@media screen and (max-width: 1700px) {
+  .mat-mdc-dialog-container {
+    max-width: 700px;
+  }
+}

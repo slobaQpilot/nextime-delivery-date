@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>NextimeDeliveryDate</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="mat-typography">
+    <select id="site-id">
+      <option>Select site id</option>
+      <option value="1">1</option>
+      <option value="3">3</option>
+    </select>
+    <select id="shipping-address">
+      <option>Select shipping address</option>
+      <option value="{}">Empty</option>
+      <option
+        value='{"name":"Local Pickup at Farm Fresh Sims Market","street":"10 Sims Ave","street2":null,"city":"Providence","state":"RI","postalCode":"02909","country":"US"}'
+      >
+        Full
+      </option>
+    </select>
+    <nextime-delivery-date
+      id="nextime-delivery"
+      order-date="2024-03-09"
+      site-id="3"
+      shipping-address='{"street":"2108 S Lamar Blvd","city":"Austin","state":"TX","country":"US","postalCode":"78704","name":"2108 S Lamar Blvd"}'
+      order='{"orderId":"2002","items":[{"id":773779,"productId":"11042","qty":1,"regularPrice":81,"salePrice":76.95,"imageUrl":"assets/images/image6.png","title":"BAMBOO Eau de Parfum 1 oz.","description":"Strong and graceful, one of GUCCImost recognizable design signatures has defined references in todays GUCCI woman."},{"id":946054,"productId":"11015","qty":1,"regularPrice":27.55,"salePrice":27.55,"imageUrl":"assets/images/image5.png","title":"Le Labo Shampoo 8.5 oz","description":"A thick, rich, deeply nourishing shampoo. This plant-based formula is made with macadamia to repair."}]}'
+    ></nextime-delivery-date>
+
+    <script>
+      document
+        .querySelector("nextime-delivery-date")
+        .addEventListener("onDateUpdate", (event) => {
+          console.log(event, "onDateUpdate");
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const shippingAddress = document.getElementById("shipping-address");
+        const siteIdElement = document.getElementById("site-id");
+        const deliveryComponent = document.getElementById("nextime-delivery");
+
+        siteIdElement.addEventListener("change", function () {
+          deliveryComponent.setAttribute("site-id", this.value);
+        });
+        shippingAddress.addEventListener("change", function () {
+          deliveryComponent.setAttribute("shipping-address", this.value);
+        });
+      });
+    </script>
+  </body>
+</html>

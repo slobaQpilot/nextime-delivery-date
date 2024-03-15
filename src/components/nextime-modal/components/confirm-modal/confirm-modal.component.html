@@ -1,0 +1,18 @@
+<div class="d-flex align-center justify-center direction-column container">
+  <p>Change Your Next Delivery Date to:</p>
+  <p *ngIf="selectedDate">
+    {{ selectedDate.toDate() | date : "EEEE, MMMM dd"
+    }}{{ selectedDate.toDate() | date : "d" | dateSuffix }}?
+  </p>
+  <div class="buttons-container d-flex justify-center row-reverse">
+    <button mat-stroked-button (click)="handleClose(false)">No</button>
+    <button
+      mat-raised-button
+      color="primary"
+      class="yes-btn"
+      (click)="handleClose(true)"
+    >
+      Yes
+    </button>
+  </div>
+</div>

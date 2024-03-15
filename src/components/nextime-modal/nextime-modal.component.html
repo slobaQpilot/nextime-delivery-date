@@ -1,0 +1,48 @@
+<mat-dialog-content>
+  <div
+    class="header d-flex justify-between"
+    [ngClass]="getScreenWidth < 1701 ? 'justify-around' : 'space-between'"
+  >
+    <app-next-delivery
+      [deliveryDate]="deliveryDate"
+      [selectedShippingLine]="selectedShippingLine"
+    ></app-next-delivery>
+    <app-change-next-delivery
+      (click)="openDatepicker()"
+      [deliveryDate]="deliveryDate"
+      *ngIf="getScreenWidth < 1701"
+    ></app-change-next-delivery>
+  </div>
+  <div class="d-flex justify-around options-picker-wrap">
+    <app-delivery-options
+      [options]="filteredDeliveryOptions"
+      [selectedOption]="selectedOption"
+      *ngIf="!datePickerMode || getScreenWidth > 1700"
+      (selected)="handleOptionSelected($event)"
+    ></app-delivery-options>
+    <div class="date-picker-container" *ngIf="datePickerMode">
+      <app-date-picker
+        [selected]="deliveryDate"
+        [options]="deliveryOptions"
+        (dateSelected)="handleDateSelected($event)"
+      ></app-date-picker>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="loader-container d-flex justify-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions
+  *ngIf="!datePickerMode || getScreenWidth > 1700"
+  [align]="'center'"
+>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onUpdate()"
+    cdkFocusInitial
+  >
+    Update
+  </button>
+  <button mat-stroked-button [mat-dialog-close]>Cancel</button>
+</mat-dialog-actions>

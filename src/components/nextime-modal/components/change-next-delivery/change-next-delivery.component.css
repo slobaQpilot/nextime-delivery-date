@@ -1,0 +1,46 @@
+.next-delivery-card {
+  min-width: 276px;
+  height: 82px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  font-weight: 500;
+}
+
+.title {
+  font-size: 13px;
+  line-height: 18px;
+  margin: 0 0 8px;
+  letter-spacing: 0px;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 14px;
+  line-height: 19px;
+  white-space: nowrap;
+}
+
+.subtitle .underline {
+  color: var(--text-primary, "#00000");
+  text-decoration: underline;
+}
+
+.subtitle .sufix {
+  font-size: 9px;
+  text-decoration-line: underline;
+  position: relative;
+  bottom: 3px;
+}
+
+.icon {
+  margin: 0;
+}
+
+.calendar-icon {
+  font-size: 38px;
+  margin-right: 21px;
+  width: 38px;
+  height: 39px;
+  vertical-align: text-top;
+}

@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-progress-bar *ngIf="isLoading" mode="query"></mat-progress-bar>
+  <div class="d-flex justify-between">
+    <div>
+      <h3 class="title">
+        Next Delivery:
+        {{ deliveryDate?.toDate() | date : "EEEE (MM/dd)" : "UTC +0" }}
+      </h3>
+      <p class="subp">
+        Your next delivery to
+        <span
+          [matTooltip]="shippingDetails?.shippingAddress?.street"
+          *ngIf="shippingDetails?.shippingAddress?.street"
+          class="shipping-to"
+          >{{ shippingDetails?.shippingAddress?.street }}</span
+        >
+        will be on:
+      </p>
+      <p class="subp date">
+        {{ deliveryDate?.toDate() | date : "EEEE, MMMM dd" : "UTC +0"
+        }}{{ deliveryDate?.toDate() | date : "d" | dateSuffix }}
+      </p>
+    </div>
+    <button mat-button (click)="openDialog()">Edit</button>
+  </div>
+  <button
+    mat-raised-button
+    color="accent"
+    class="change-delivery-date"
+    (click)="openDialog()"
+  >
+    Change Delivery Date
+  </button>
+</mat-card>

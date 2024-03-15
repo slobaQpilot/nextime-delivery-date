@@ -1,0 +1,19 @@
+// buttons
+
+.mat-mdc-raised-button.mat-accent {
+  --mdc-protected-button-container-color: black;
+}
+
+.change-delivery-date.mat-mdc-raised-button:not(:disabled) {
+  color: #ffff;
+}
+
+.mdc-button.mdc-button--outlined {
+  background-color: #ffff;
+}
+
+// dialog
+
+.mat-mdc-dialog-container .mdc-dialog__content {
+  --mdc-dialog-supporting-text-color: rgba(0, 0, 0, 1);
+}

@@ -1,0 +1,110 @@
+<div class="container">
+  <mat-radio-group aria-label="Select an option">
+    <table>
+      <tbody>
+        <ng-template
+          ngFor
+          let-option
+          [ngForOf]="
+            selectedOption?.shippingLines?.slice(0, selectedOptionsVisibleCount)
+          "
+        >
+          <tr>
+            <td class="first-td">
+              <mat-radio-button
+                [value]="selectedOption?.deliveryDate"
+                color="primary"
+                [checked]="selectedShippingLineName === option.name"
+                >${{ option.total }}</mat-radio-button
+              >
+            </td>
+            <td class="td-name" [matTooltip]="option.name">
+              {{ option.name }}
+            </td>
+            <td class="td-last">
+              on
+              {{
+                momentjs
+                  .utc(selectedOption?.deliveryDate)
+                  .format("ddd, MMMM DD")
+              }}<span class="sufix">{{
+                selectedOption?.deliveryDate | date : "d" | dateSuffix
+              }}</span>
+            </td>
+          </tr>
+        </ng-template>
+        <a
+          *ngIf="
+            selectedOptionsVisibleCount === 3 &&
+            (selectedOption?.shippingLines?.length || 0) > 3
+          "
+          class="show-more-options"
+          (click)="handleShowSelectedOptions()"
+        >
+          Show ({{ (selectedOption?.shippingLines?.length || 3) - 3 }}) More
+          Option{{
+            (selectedOption?.shippingLines?.length || 0) > 4 ? "s" : ""
+          }}
+        </a>
+        <tr *ngIf="options?.length && selectedOption">
+          <td colspan="3">
+            <p>
+              Need it Faster?
+              <span class="delivery-options-available"
+                >({{ options?.length }}) Delivery Options Available<br
+              /></span>
+              <span class="next-delivery-date"
+                >or
+                <span class="underline"
+                  >Change Your Next Delivery Date</span
+                ></span
+              >
+              to See More Options
+            </p>
+          </td>
+        </tr>
+        <ng-template
+          ngFor
+          let-option
+          [ngForOf]="options?.slice(0, optionsVisibleCount)"
+        >
+          <tr>
+            <td class="first-td">
+              <mat-radio-button
+                (change)="handleDateChange($event)"
+                [value]="option.deliveryDate"
+                color="primary"
+                >${{ option.shippingLines[0].total }}</mat-radio-button
+              >
+            </td>
+            <td class="td-name" [matTooltip]="option.shippingLines[0].name">
+              {{ option.shippingLines[0].name }}
+            </td>
+            <td class="td-last">
+              on
+
+              {{ momentjs.utc(option.deliveryDate).format("dddd, MMMM DD")
+              }}<span class="sufix">{{
+                option.deliveryDate | date : "d" | dateSuffix
+              }}</span>
+            </td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </mat-radio-group>
+  <a
+    *ngIf="optionsVisibleCount === 4 && (options?.length || 0) > 4"
+    class="show-more-options"
+    (click)="handleShowOptions()"
+  >
+    Show ({{ (options?.length || 4) - 4 }}) More Option{{
+      (options?.length || 0) > 5 ? "s" : ""
+    }}
+  </a>
+  {{
+    !options?.length && !selectedOption
+      ? "No options. Please select different date."
+      : ""
+  }}
+</div>

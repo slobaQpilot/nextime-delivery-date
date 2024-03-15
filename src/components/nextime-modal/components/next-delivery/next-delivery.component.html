@@ -1,0 +1,26 @@
+<mat-card class="next-delivery-card">
+  <mat-card-content>
+    <p *ngIf="deliveryDate" class="title d-flex color-primary">
+      Next Delivery on:<span class="underline">{{
+        deliveryDate.toDate() | date : "EEEE, MMMM dd" : "UTC +0"
+      }}</span
+      ><span class="sufix">{{
+        deliveryDate.toDate() | date : "d" | dateSuffix
+      }}</span>
+    </p>
+    <p class="subtitle d-flex align-center" [matTooltip]="selectedShippingLine?.name || ''">
+      <mat-icon
+        aria-hidden="false"
+        fontIcon="payments"
+        class="payments-icon"
+      ></mat-icon>
+      $0
+      <mat-icon
+        class="shipping-icon"
+        aria-hidden="false"
+        fontIcon="local_shipping"
+      ></mat-icon>
+      {{selectedShippingLine?.name}}
+    </p>
+  </mat-card-content>
+</mat-card>

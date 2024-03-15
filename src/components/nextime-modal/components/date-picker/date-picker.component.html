@@ -1,0 +1,12 @@
+<mat-calendar
+  *ngIf="!isLoading"
+  (selectedChange)="handleDateChange($event)"
+  [(selected)]="selected || today"
+  [dateFilter]="myFilter"
+  [headerComponent]="datePickerHeader"
+></mat-calendar>
+<app-confirm-modal
+  (onClosed)="handleCloseConfirm($event)"
+  [selectedDate]="selected"
+  *ngIf="isConfirmDialogOpen"
+></app-confirm-modal>

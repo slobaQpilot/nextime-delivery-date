@@ -1,0 +1,8 @@
+<app-nextime-card
+  *ngIf="shippingDetails && siteId"
+  [shippingDetails]="shippingDetails"
+  [orderDate]="orderDate || ''"
+  [siteId]="siteId"
+  (onDateUpdate)="handleDateUpdate($event)"
+>
+</app-nextime-card>
