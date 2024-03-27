@@ -17,6 +17,15 @@
   z-index: 1;
 }
 
+.confirm-button {
+  min-width: 130px;
+  height: 58px;
+}
+
+.confirm-button-yes {
+  margin-right: 40px;
+}
+
 .container {
   padding: 20px;
 }

@@ -40,9 +40,13 @@
     mat-raised-button
     color="primary"
     (click)="onUpdate()"
+    [disabled]="!isDateUpdated"
     cdkFocusInitial
+    class="footer-btn update-btn"
   >
     Update
   </button>
-  <button mat-stroked-button [mat-dialog-close]>Cancel</button>
+  <button class="footer-btn" mat-stroked-button [mat-dialog-close]>
+    Cancel
+  </button>
 </mat-dialog-actions>

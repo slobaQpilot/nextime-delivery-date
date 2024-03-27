@@ -5,12 +5,19 @@
     }}{{ selectedDate.toDate() | date : "d" | dateSuffix }}?
   </p>
   <div class="buttons-container d-flex justify-center row-reverse">
-    <button mat-stroked-button (click)="handleClose(false)">No</button>
+    <button
+      mat-stroked-button
+      (click)="handleClose(false)"
+      class="confirm-button"
+    >
+      No
+    </button>
     <button
       mat-raised-button
       color="primary"
       class="yes-btn"
       (click)="handleClose(true)"
+      class="confirm-button confirm-button-yes"
     >
       Yes
     </button>

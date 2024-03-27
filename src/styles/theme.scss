@@ -72,6 +72,10 @@ $my-primary: mat.define-palette($custom-pallete, 500);
 $app-accent: mat.define-palette($custom-accent, A200, A100, A400);
 $app-warn: mat.define-palette(mat.$red-palette);
 
+$custom-typography: mat.define-typography-config(
+  $font-family: "Open Sans, sans-serif",
+);
+
 $app-theme: mat.define-light-theme(
   (
     color: (
@@ -79,6 +83,7 @@ $app-theme: mat.define-light-theme(
       accent: $app-accent,
       warn: $app-warn,
     ),
+    typography: $custom-typography,
   )
 );
 
@@ -90,4 +95,18 @@ $app-theme: mat.define-light-theme(
 
 :root {
   --mdc-theme-primary: #{mat.get-theme-color($app-theme, primary)};
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.mat-typography {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: normal;
+
+  h3 {
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: normal;
+  }
 }

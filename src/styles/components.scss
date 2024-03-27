@@ -1,3 +1,15 @@
+html {
+  --mdc-text-button-label-text-size: 22px;
+  --mdc-text-button-label-text-tracking: normal;
+  --mdc-dialog-supporting-text-weight: 600;
+  --mdc-outlined-button-outline-color: black;
+  --mdc-outlined-button-label-text-weight: 600;
+  --mdc-protected-button-label-text-weight: 600;
+  --mat-datepicker-calendar-text-size: 17px;
+  --mat-datepicker-calendar-header-text-color: black;
+  --mat-datepicker-calendar-header-text-size: 16px;
+}
+
 // buttons
 
 .mat-mdc-raised-button.mat-accent {

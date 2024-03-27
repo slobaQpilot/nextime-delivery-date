@@ -67,6 +67,7 @@ export class NextimeModalComponent implements OnInit, OnDestroy {
   selectedShippingLine: ShippingLine | undefined;
   private monthChangeSubscription: Subscription | undefined;
   nextDeliverySubscription$?: Subscription;
+  isDateUpdated = false;
 
   constructor(
     public dialogRef: MatDialogRef<NextimeModalComponent>,
@@ -147,6 +148,7 @@ export class NextimeModalComponent implements OnInit, OnDestroy {
       this.deliveryDate = moment(newDate);
       this.filterOptions();
       this.updatePickerOverWSize();
+      this.isDateUpdated = true;
     }
   }
 
@@ -228,5 +230,6 @@ export class NextimeModalComponent implements OnInit, OnDestroy {
   handleOptionSelected(date: Date) {
     this.deliveryDate = moment.utc(date);
     this.filterOptions();
+    this.isDateUpdated = true;
   }
 }
